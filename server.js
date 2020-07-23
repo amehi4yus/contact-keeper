@@ -9,7 +9,7 @@ const app = express()
 connectDB()
 
 //Init Middleware
-app.use(express.json({ extended: false }))     //parser needed to accept req.body data in routes
+app.use(express.json({ extended: false }))     
 
 
 
@@ -18,7 +18,7 @@ app.use('/api/users', require('./routes/users'))
 app.use('/api/contacts', require('./routes/contacts'))
 app.use('/api/auth', require('./routes/auth'))
 
-//Serve static assets (React) in production
+//Serve static assets in production/React
 if (process.env.NODE_ENV === 'production') {
     // Set static folder
     app.use(express.static('client/build'));
