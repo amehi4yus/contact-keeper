@@ -2,10 +2,6 @@ node_modules/
 
 /client/build
 
-.DS_Store
-/client/.env.development.local
-/client/.env.test.local
-/client/.env.production.local
 
 
 npm-debug.log*
