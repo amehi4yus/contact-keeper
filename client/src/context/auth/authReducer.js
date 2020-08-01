@@ -1,5 +1,4 @@
 import {
-    REMOVE_ALERT,
     REGISTER_SUCCESS,
     REGISTER_FAIL,
     USER_LOADED,

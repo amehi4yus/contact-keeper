@@ -30,7 +30,7 @@ const ContactState = (props) => {
     const getContacts = async () => {
 
         try {
-            const res = await axios.get('./api/contacts')
+            const res = await axios.get('/api/contacts')
             dispatch({
                 type: GET_CONTACTS,
                 payload: res.data
@@ -84,10 +84,6 @@ const ContactState = (props) => {
                 payload: err.response.msg
             })
         }
-        dispatch({
-            type: DELETE_CONTACT,
-            payload: id
-        })
     }
 
     
@@ -137,7 +133,6 @@ const ContactState = (props) => {
             type: CLEAR_CURRENT,
         })
     }
-
 
     //Filter Contaccts
     const filterContacts = (text) => {

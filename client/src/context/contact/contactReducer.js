@@ -23,7 +23,7 @@ export default (state, action) =>{
         case ADD_CONTACT: 
             return{
              ...state,
-            contacts: [ action.payload, ...state.contacts],
+            contacts: [ ...state.contacts, action.payload ],
             loading: false
             }
         case UPDATE_CONTACT:
@@ -62,8 +62,8 @@ export default (state, action) =>{
             return{
                 ...state,
                 filtered: state.contacts.filter(contact => {
-                    const regex = new RegExp(`${action.payload}`, 'gi');  //global, case insensitive
-                    return contact.name.match(regex) || contact.email.match(regex); 
+                    const regex = new RegExp(`${action.payload}`, 'gi')  //global, case insensitive
+                    return contact.name.match(regex) || contact.email.match(regex);
                 }),
             }
         case CLEAR_FILTER:

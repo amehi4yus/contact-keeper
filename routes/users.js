@@ -9,8 +9,8 @@ const User = require('../models/User')
 
 
 //@route    POST api/users
-//@desc     Register user
-//@access   Public
+//@desc     Register userPublic
+//@access   
 
 //REGISTER USER
 router.post('/', 
@@ -45,7 +45,8 @@ router.post('/',
             //Hash the password
             const salt = await bcrypt.genSalt(10)
             user.password = await bcrypt.hash(password, salt)
-
+ 
+            //Save user to DB
             await user.save()
 
             // Data to be sent in jwt token

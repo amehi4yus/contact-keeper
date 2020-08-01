@@ -26,17 +26,17 @@ const AuthState = (props) => {
 
     const [state, dispatch] = useReducer(authReducer, initialState);
     
-    //Load User
+    //Load User -> validate user, check token
     const loadUser = async () => {
 
     setAuthToken(localStorage.token)
        
     try {
-        const res = await axios.get('/api/auth') //check token, validate user
+        const res = await axios.get('/api/auth') 
 
         dispatch({
             type: USER_LOADED,
-            payload: res.data
+            payload: res.data    //loggedin user
            })
        } catch (err) {
            dispatch({
@@ -83,7 +83,7 @@ const AuthState = (props) => {
 
             dispatch({
                 type: LOGIN_SUCCESS,
-                payload: res.data  //token
+                payload: res.data  //token ->put token into localStorage in reducer
             })
 
             loadUser()
